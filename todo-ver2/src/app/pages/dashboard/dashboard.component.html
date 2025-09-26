@@ -1,1 +1,16 @@
-<p>dashboard works!</p>
+<app-navbar></app-navbar>
+<nz-content>
+  <nz-row nzGutter="16">
+    <nz-col nzSpan="12">
+      <nz-card nzTitle="Thống kê nhiệm vụ theo thời gian">
+        <apx-chart [series]="barChartOptions.series" [chart]="barChartOptions.chart" [xaxis]="barChartOptions.xaxis" [dataLabels]="barChartOptions.dataLabels" [stroke]="barChartOptions.stroke" [tooltip]="barChartOptions.tooltip"></apx-chart>
+      </nz-card>
+    </nz-col>
+    <nz-col nzSpan="12">
+      <nz-card nzTitle="Trạng thái nhiệm vụ">
+        <apx-chart [series]="pieChartOptions.series" [chart]="pieChartOptions.chart" [labels]="pieChartOptions.labels" [responsive]="pieChartOptions.responsive"></apx-chart>
+      </nz-card>
+    </nz-col>
+  </nz-row>
+</nz-content>
+<app-footer></app-footer>
