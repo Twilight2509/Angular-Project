@@ -1,12 +1,14 @@
 import { Component } from '@angular/core';
+import { NzTypographyModule } from 'ng-zorro-antd/typography';
 
 @Component({
   selector: 'app-footer',
   standalone: true,
-  imports: [],
-  templateUrl: './footer.component.html',
-  styleUrl: './footer.component.css'
+  imports: [NzTypographyModule],
+  template: `
+    <footer style="text-align: center; padding: 20px;">
+      <nz-typography>© 2025 My App. All rights reserved.</nz-typography>
+    </footer>
+  `
 })
-export class FooterComponent {
-
-}
+export class FooterComponent {}

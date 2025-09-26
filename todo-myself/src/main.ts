@@ -8,6 +8,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 bootstrapApplication(AppComponent, {
   providers: [
     provideRouter(routes),
-    importProvidersFrom(BrowserAnimationsModule), 
+    importProvidersFrom(BrowserAnimationsModule),
   ]
 });

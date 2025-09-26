@@ -30,7 +30,9 @@
 
 .sidebar-logo {
   position: relative;
-  height: 64px;
+  height: auto;
+  width: 240px;
+  object-fit: contain;
   padding-left: 24px;
   overflow: hidden;
   line-height: 64px;
@@ -40,8 +42,9 @@
 
 .sidebar-logo img {
   display: inline-block;
-  height: 32px;
-  width: 32px;
+  height: 50px;
+  width: 205px;
+  object-fit: contain;
   vertical-align: middle;
 }
 
@@ -50,7 +53,7 @@
   margin: 0 0 0 20px;
   color: #fff;
   font-weight: 600;
-  font-size: 14px;
+  font-size: 20px;
   font-family: Avenir,Helvetica Neue,Arial,Helvetica,sans-serif;
   vertical-align: middle;
 }
