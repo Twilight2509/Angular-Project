@@ -2,6 +2,8 @@ import { bootstrapApplication } from '@angular/platform-browser';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideRouter } from '@angular/router';
 import { importProvidersFrom } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+import { NZ_I18N, vi_VN } from 'ng-zorro-antd/i18n';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NgxApexchartsModule } from 'ngx-apexcharts';
 import { IconDefinition } from '@ant-design/icons-angular';
@@ -15,6 +17,6 @@ bootstrapApplication(AppComponent, {
   providers: [
     provideRouter(appRoutes),
     provideAnimations(),
-    importProvidersFrom(NzIconModule.forRoot(icons), NgxApexchartsModule)
+    importProvidersFrom(NzIconModule.forRoot(icons), NgxApexchartsModule, HttpClientModule),
   ]
 }).catch(err => console.error(err));
