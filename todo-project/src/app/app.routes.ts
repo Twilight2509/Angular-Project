@@ -1,8 +1,7 @@
 import { Routes } from '@angular/router';
-import { NzDemoCalendarBasicComponent } from './nz-demo-calendar-basic-component/nz-demo-calendar-basic-component.component';
 
 export const routes: Routes = [
-  { path: '', component: NzDemoCalendarBasicComponent },
-  // nếu cần thêm page khác:
-  // { path: 'about', component: AboutComponent }
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'home', loadComponent: () => import('./pages/homepage/homepage.component').then(m => m.HomepageComponent) },
+  { path: 'dashboard', loadComponent: () => import('./pages/dashboard/dashboard.component').then(m => m.DashboardComponent) },
 ];

@@ -1,0 +1,20 @@
+<nz-calendar>
+  <ul *nzDateCell="let date" class="events">
+    @for (task of getTasksForDate(date); track task.id) {
+      <li>
+        <nz-badge [nzStatus]="task.type" [nzText]="task.title"></nz-badge>
+      </li>
+    }
+  </ul>
+  <ng-container *nzMonthCell="let month">
+    @if (getMonthData(month); as monthData) {
+      <div class="notes-month">
+        <section>{{ monthData }}</section>
+        <span>Backlog number</span>
+      </div>
+    }
+  </ng-container>
+</nz-calendar>
+@if (errorMessage) {
+  <nz-alert nzType="error" [nzMessage]="errorMessage"></nz-alert>
+}
