@@ -1,0 +1,25 @@
+<div class="login-container">
+  <nz-card nzTitle="Đăng nhập" [nzExtra]="extraTemplate" style="width: 300px; margin: 100px auto;">
+    <form nz-form (ngSubmit)="onSubmit()">
+      <nz-form-item>
+        <nz-form-control>
+          <nz-input-group>
+            <input nz-input placeholder="Email" [(ngModel)]="email" name="email" required />
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-control>
+          <nz-input-group>
+            <input nz-input type="password" placeholder="Mật khẩu" [(ngModel)]="password" name="password" required />
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+      <button nz-button nzType="primary" type="submit" [nzBlock]="true">Đăng nhập</button>
+    </form>
+  </nz-card>
+</div>
+
+<ng-template #extraTemplate>
+  <!-- Có thể thêm extra nếu cần -->
+</ng-template>
