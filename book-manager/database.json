@@ -1,0 +1,155 @@
+{
+  "users": [
+    {
+      "id": "usr_1a2b3c",
+      "name": "Nguyễn Văn Anh",
+      "email": "anhnv@gmail.com",
+      "password": "abcdef",
+      "createdAt": "2025-01-15T09:00:00Z"
+    },
+    {
+      "id": "usr_4d5e6f",
+      "name": "Trần Thị B",
+      "email": "b.tran@example.com",
+      "createdAt": "2025-02-10T14:30:00Z"
+    },
+    {
+      "id": "usr_7g8h9i",
+      "name": "Lê Văn C",
+      "email": "c.le@example.com",
+      "createdAt": "2025-03-05T08:15:00Z"
+    }
+  ],
+  "books": [
+    {
+      "id": "bk_101",
+      "title": "Lập Trình JavaScript Cơ Bản",
+      "author": "Nguyễn Văn Tùng",
+      "stock": 120
+    },
+    {
+      "id": "bk_102",
+      "title": "Học React Từ Zero",
+      "author": "Trần Thị Mai",
+      "stock": 80
+    },
+    {
+      "id": "bk_103",
+      "title": "Angular Toàn Tập",
+      "author": "Phạm Văn Long",
+      "stock": 60
+    },
+    {
+      "id": "bk_104",
+      "title": "Node.js Backend",
+      "author": "Lê Hữu Khang",
+      "stock": 40
+    }
+  ],
+  "transactions": [
+    {
+      "id": "tx_001",
+      "bookId": "bk_101",
+      "userId": "usr_1a2b3c",
+      "type": "import",
+      "quantity": 50,
+      "date": "2025-01-10T10:00:00Z"
+    },
+    {
+      "id": "tx_002",
+      "bookId": "bk_102",
+      "userId": "usr_4d5e6f",
+      "type": "import",
+      "quantity": 30,
+      "date": "2025-01-15T15:00:00Z"
+    },
+    {
+      "id": "tx_003",
+      "bookId": "bk_101",
+      "userId": "usr_7g8h9i",
+      "type": "export",
+      "quantity": 20,
+      "date": "2025-02-05T09:00:00Z"
+    },
+    {
+      "id": "tx_004",
+      "bookId": "bk_103",
+      "userId": null,
+      "type": "import",
+      "quantity": 40,
+      "date": "2025-02-18T13:30:00Z"
+    },
+    {
+      "id": "tx_005",
+      "bookId": "bk_104",
+      "userId": "usr_1a2b3c",
+      "type": "export",
+      "quantity": 10,
+      "date": "2025-03-02T16:00:00Z"
+    },
+    {
+      "id": "tx_006",
+      "bookId": "bk_102",
+      "userId": "usr_4d5e6f",
+      "type": "export",
+      "quantity": 15,
+      "date": "2025-03-10T09:45:00Z"
+    },
+    {
+      "id": "tx_007",
+      "bookId": "bk_103",
+      "userId": "usr_7g8h9i",
+      "type": "import",
+      "quantity": 25,
+      "date": "2025-04-01T08:20:00Z"
+    },
+    {
+      "id": "tx_008",
+      "bookId": "bk_101",
+      "userId": null,
+      "type": "export",
+      "quantity": 30,
+      "date": "2025-04-12T11:15:00Z"
+    },
+    {
+      "id": "tx_009",
+      "bookId": "bk_104",
+      "userId": "usr_1a2b3c",
+      "type": "import",
+      "quantity": 35,
+      "date": "2025-05-05T10:40:00Z"
+    },
+    {
+      "id": "tx_010",
+      "bookId": "bk_102",
+      "userId": "usr_4d5e6f",
+      "type": "export",
+      "quantity": 22,
+      "date": "2025-05-20T14:25:00Z"
+    },
+    {
+      "id": "tx_011",
+      "bookId": "bk_103",
+      "userId": "usr_7g8h9i",
+      "type": "export",
+      "quantity": 18,
+      "date": "2025-06-02T09:10:00Z"
+    },
+    {
+      "id": "tx_012",
+      "bookId": "bk_104",
+      "userId": null,
+      "type": "export",
+      "quantity": 12,
+      "date": "2025-06-18T13:55:00Z"
+    },
+    {
+      "id": "tx_1759386928103",
+      "bookId": "",
+      "userId": "",
+      "type": "import",
+      "quantity": 0,
+      "date": "2025-10-02T06:35:28.103Z"
+    }
+  ]
+}

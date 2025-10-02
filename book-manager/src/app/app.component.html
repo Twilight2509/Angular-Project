@@ -1,1 +1,31 @@
-<router-outlet></router-outlet>>
+<nz-layout style="min-height: 100vh;">
+  <!-- Sidebar -->
+  <app-sidebar></app-sidebar>
+
+  <!-- Content -->
+  <nz-layout>
+    <nz-header class="header" style="">
+      <h1 >Book Management System</h1>
+      <nz-button-group>
+      <button style="border-top-left-radius: 7px; border-bottom-left-radius: 7px;" nz-button nzType="primary" nzGhost (click)="log()">DropDown</button>
+      <button style="border-top-right-radius: 7px; border-bottom-right-radius: 7px;" nz-button nz-dropdown nzType="primary" nzGhost [nzDropdownMenu]="menu2" nzPlacement="bottomRight">
+        <span nz-icon nzType="user"></span>
+      </button>
+    </nz-button-group>
+    
+    </nz-header>
+    <nz-content class="content" > <!-- Điều chỉnh margin-left -->
+      <div style="">
+        <router-outlet></router-outlet>
+      </div>
+    </nz-content>
+  </nz-layout>
+</nz-layout>
+
+<nz-dropdown-menu #menu2="nzDropdownMenu">
+      <ul nz-menu>
+        <li nz-menu-item>menu2 1st menu item</li>
+        <li nz-menu-item>menu2 2nd menu item</li>
+        <li nz-menu-item>menu2 3rd menu item</li>
+      </ul>
+    </nz-dropdown-menu>

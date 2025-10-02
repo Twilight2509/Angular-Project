@@ -1,0 +1,18 @@
+nz-sider {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  background: #001529;
+  color: #fff;
+}
+
+.side-com {
+    height: 70px;
+    border-bottom: 1px #001529;
+}
+
+.logo {
+  height: 32px;
+  margin: 16px;
+}

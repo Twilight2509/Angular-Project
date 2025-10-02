@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common'; // Hỗ trợ *ngFor
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { NzCardModule } from 'ng-zorro-antd/card';
 import { NzStatisticModule } from 'ng-zorro-antd/statistic';
 import { NzGridModule } from 'ng-zorro-antd/grid';
@@ -15,6 +15,8 @@ import {
   ApexPlotOptions,
   ApexXAxis
 } from 'ng-apexcharts';
+import { ApiService } from '../services/api.service';
+import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
 
 @Component({
   selector: 'app-dashboard',
@@ -28,54 +30,53 @@ import {
     FormsModule,
     NzTableModule,
     NzTagModule,
-    NgApexchartsModule
+    NgApexchartsModule,
+    NzDatePickerModule
   ],
   templateUrl: './dashboard.component.html'
 })
-export class DashboardComponent {
-  totalStock = 300;
-  totalUsers = 4;
-  totalImport = 180;
-  totalExport = 127;
-
-  selectedYear = 2025;
-
-  chartSeries: ApexAxisChartSeries = [
-    {
-      name: 'Nhập',
-      data: [80, 40, 0, 25, 35, 0, 0, 0, 0, 0, 0, 0]
-    },
-    {
-      name: 'Xuất',
-      data: [0, 20, 25, 30, 22, 30, 0, 0, 0, 0, 0, 0]
-    }
-  ];
-
+export class DashboardComponent implements OnInit {
+  totalStock = 0;
+  totalUsers = 0;
+  totalImport = 0;
+  totalExport = 0;
+  date = new Date();
+  chartSeries: ApexAxisChartSeries = [{ name: 'Nhập', data: [] }, { name: 'Xuất', data: [] }];
   chartOptions = {
-    chart: {
-      type: 'bar' as const,
-      height: 350
-    } as ApexChart,
-    plotOptions: {
-      bar: {
-        horizontal: false,
-        columnWidth: '55%',
-        endingShape: 'rounded'
-      }
-    } as ApexPlotOptions,
-    dataLabels: {
-      enabled: false
-    } as ApexDataLabels,
-    xaxis: {
-      categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-    } as ApexXAxis,
-    colors: ['#1890ff', '#52c41a'] // Không cần ApexColors, chỉ dùng string[]
+    chart: { type: 'bar' as const, height: 350 } as ApexChart,
+    plotOptions: { bar: { horizontal: false, columnWidth: '55%', endingShape: 'rounded' } } as ApexPlotOptions,
+    dataLabels: { enabled: false } as ApexDataLabels,
+    xaxis: { categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'] } as ApexXAxis,
+    colors: ['#1890ff', '#52c41a']
   };
+  booksData: any[] = [];
 
-  booksData = [
-    { title: 'Lập Trình JavaScript Cơ Bản', export: 50, stock: 120, price: 100000 },
-    { title: 'Học React Từ Zero', export: 37, stock: 80, price: 150000 },
-    { title: 'Node.js Backend', export: 22, stock: 40, price: 250000 },
-    { title: 'Angular Toàn Tập', export: 18, stock: 0, price: 200000 }
-  ];
+  constructor(private apiService: ApiService) {}
+
+  ngOnInit() {
+    this.loadData();
+  }
+
+  loadData() {
+    this.apiService.getInventoryStats().subscribe(stats => {
+      this.totalStock = stats.totalStock;
+      this.totalImport = stats.totalImport;
+      this.totalExport = stats.totalExport;
+      this.totalUsers = stats.totalUsers;
+    });
+
+    this.apiService.getBooksWithExport().subscribe(data => {
+      this.booksData = data;
+    });
+
+    this.apiService.getMonthlyChartData().subscribe(series => {
+      this.chartSeries = series;
+    });
+  }
+
+  onChange(event: Date): void {
+    // Thêm logic khi ngày thay đổi, ví dụ: tải lại dữ liệu theo năm
+    console.log('Selected year:', event.getFullYear());
+    // Gọi API hoặc cập nhật chartSeries dựa trên năm mới nếu cần
+  }
 }

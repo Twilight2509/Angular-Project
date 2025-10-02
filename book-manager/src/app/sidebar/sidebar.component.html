@@ -1,0 +1,19 @@
+<nz-sider [nzWidth]="300" style=" background: rgb(255, 255, 255) ">
+  <div class="logo"  style="height: 32px; background: rgba(255, 255, 255, 0.2); margin: 16px;">
+    <img src="assets/logo.png" alt="Logo" style="height: 100%; display: block; margin: 0 auto;" />
+  </div>
+  <ul nz-menu nzMode="inline" nzTheme="light">
+    <li class="side-com" nz-menu-item routerLink="/dashboard" >
+      <span nz-icon nzType="fund" nzTheme="outline"></span>
+      <span>Dashboard</span>
+    </li>
+    <li class="side-com" nz-menu-item routerLink="/books">
+      <span nz-icon nzType="book"></span>
+      <span>Book</span>
+    </li>
+    <li class="side-com" nz-menu-item routerLink="/users">
+      <span nz-icon nzType="user"></span>
+      <span>Users</span>
+    </li>
+  </ul>
+</nz-sider>

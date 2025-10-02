@@ -1,7 +1,6 @@
 <div class="dashboard-container" style="padding: 20px; background: #f5f5f5; min-height: 100vh;">
   <h1 style="text-align: center; margin-bottom: 20px;">Xuất / Nhập Sách</h1>
   <nz-row nzGutter="16">
-    <!-- Cột trái: 6/24 (tương đương 3/12) -->
     <nz-col [nzSpan]="6">
       <nz-card style="margin-bottom: 16px;">
         <nz-statistic [nzValue]="totalStock" nzTitle="Tổng sách tồn"></nz-statistic>
@@ -16,9 +15,7 @@
         <nz-statistic [nzValue]="totalExport" nzTitle="Tổng sách xuất"></nz-statistic>
       </nz-card>
     </nz-col>
-    <!-- Cột phải: 18/24 (tương đương 9/12) -->
     <nz-col [nzSpan]="18">
-      <!-- Card biểu đồ -->
       <nz-card [nzTitle]="chartTitleTemplate" style="margin-bottom: 16px;">
         <apx-chart
           [series]="chartSeries"
@@ -27,9 +24,8 @@
           [dataLabels]="chartOptions.dataLabels"
           [plotOptions]="chartOptions.plotOptions"
           [colors]="chartOptions.colors"
-        ></apx-chart> <!-- Đảm bảo thẻ được đóng đúng -->
+        ></apx-chart>
       </nz-card>
-      <!-- Card table -->
       <nz-card nzTitle="Danh sách sách">
         <nz-table #basicTable [nzData]="booksData" [nzShowPagination]="false">
           <thead>
@@ -64,7 +60,5 @@
 
 <ng-template #chartTitleTemplate>
   Lượng xuất / nhập năm:
-  <nz-select [(ngModel)]="selectedYear" style="margin-left: 8px; width: 120px;">
-    <nz-option [nzValue]="2025" nzLabel="2025"></nz-option>
-  </nz-select>
+  <nz-date-picker nzMode="year" [(ngModel)]="date" (ngModelChange)="onChange($event)"></nz-date-picker>
 </ng-template>

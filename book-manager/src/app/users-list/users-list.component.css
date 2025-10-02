@@ -1,0 +1,14 @@
+.fix-btn {
+    border-radius: 7px;
+}
+.del-btn {
+    margin-left: 8px;
+    border-radius: 7px;
+}
+.zebra-table tbody tr:nth-child(odd) {
+  background: #e2e0e062; /* màu nhạt */
+}
+
+.zebra-table tbody tr:nth-child(even) {
+  background: #fff; /* màu trắng */
+}

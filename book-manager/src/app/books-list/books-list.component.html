@@ -1,0 +1,23 @@
+<div style="padding: 20px;">
+  <h2>Danh sách sách</h2>
+  <button class="import-btn" nz-button nzType="primary" (click)="openModal('import')">Nhập sách</button>
+  <button class="export-btn" nz-button nzType="primary" nzDanger (click)="openModal('export')" style="margin-left: 8px; margin-bottom: 15px;">Xuất sách</button>
+  <nz-table [nzData]="books" nzShowPagination="true">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Tiêu đề</th>
+        <th>Tác giả</th>
+        <th>Tồn kho</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let book of books">
+        <td>{{ book.id }}</td>
+        <td>{{ book.title }}</td>
+        <td>{{ book.author }}</td>
+        <td>{{ book.stock }}</td>
+      </tr>
+    </tbody>
+  </nz-table>
+</div>

@@ -1,0 +1,26 @@
+<div style="padding: 20px;">
+  <h2>Danh sách user</h2>
+  <nz-table class="zebra-table" [nzData]="users" nzShowPagination="true" >
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Tên</th>
+        <th>Email</th>
+        <th>Ngày tạo</th>
+        <th>Hành động</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users">
+        <td>{{ user.id }}</td>
+        <td>{{ user.name }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.createdAt }}</td>
+        <td>
+          <button class="fix-btn" nz-button nzType="primary" (click)="editUser(user)">Sửa</button>
+          <button class="del-btn" nz-button nzDanger (click)="deleteUser(user.id)" >Xóa</button>
+        </td>
+      </tr>
+    </tbody>
+  </nz-table>
+</div>
