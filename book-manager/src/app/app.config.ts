@@ -6,6 +6,7 @@ import { routes } from './app.routes'; // Import routes
 import { provideAnimations } from '@angular/platform-browser/animations'; // Thêm import này
 import { provideNzIcons } from 'ng-zorro-antd/icon';
 import * as AllIcons from '@ant-design/icons-angular/icons';
+import { provideNzI18n, en_US } from 'ng-zorro-antd/i18n';
 
 const icons = Object.values(AllIcons);
 
@@ -14,6 +15,7 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes), // Sử dụng provideRouter thay vì { provide: 'routes', useValue: routes }
     provideHttpClient(), // HttpClient toàn cục
     provideAnimations(),
+    provideNzI18n(en_US),
     provideNzIcons(icons) 
   ]
 };

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, forkJoin } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { ApexAxisChartSeries, ApexChart, ApexDataLabels, ApexPlotOptions, ApexXAxis } from 'ng-apexcharts';
+import { ApexAxisChartSeries } from 'ng-apexcharts';
 
 @Injectable({
   providedIn: 'root'
@@ -81,6 +81,7 @@ export class ApiService {
       })
     );
   }
+
   // Tạo transaction mới (nhập/xuất sách)
   createTransaction(transaction: any): Observable<any> {
     return this.http.post(`${this.apiUrl}/transactions`, transaction);
@@ -94,5 +95,15 @@ export class ApiService {
   // Delete user
   deleteUser(userId: string): Observable<any> {
     return this.http.delete(`${this.apiUrl}/users/${userId}`);
+  }
+
+  // 👉 Thêm mới sách
+  addBook(book: any): Observable<any> {
+    return this.http.post(`${this.apiUrl}/books`, book);
+  }
+
+  // 👉 Cập nhật sách (stock, title, author)
+  updateBook(bookId: string, book: any): Observable<any> {
+    return this.http.put(`${this.apiUrl}/books/${bookId}`, book);
   }
 }

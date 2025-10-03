@@ -17,6 +17,7 @@ import {
 } from 'ng-apexcharts';
 import { ApiService } from '../services/api.service';
 import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
+import { RouterLink } from "@angular/router";
 
 @Component({
   selector: 'app-dashboard',
@@ -31,9 +32,11 @@ import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
     NzTableModule,
     NzTagModule,
     NgApexchartsModule,
-    NzDatePickerModule
-  ],
-  templateUrl: './dashboard.component.html'
+    NzDatePickerModule,
+    RouterLink
+],
+  templateUrl: './dashboard.component.html',
+  styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
   totalStock = 0;

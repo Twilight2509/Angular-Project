@@ -25,7 +25,7 @@
       "id": "bk_101",
       "title": "Lập Trình JavaScript Cơ Bản",
       "author": "Nguyễn Văn Tùng",
-      "stock": 120
+      "stock": 100
     },
     {
       "id": "bk_102",
@@ -44,6 +44,12 @@
       "title": "Node.js Backend",
       "author": "Lê Hữu Khang",
       "stock": 40
+    },
+    {
+      "id": "",
+      "title": "",
+      "author": "",
+      "stock": 0
     }
   ],
   "transactions": [
@@ -150,6 +156,46 @@
       "type": "import",
       "quantity": 0,
       "date": "2025-10-02T06:35:28.103Z"
+    },
+    {
+      "id": "tx_1759456605901",
+      "bookId": "",
+      "userId": "",
+      "type": "import",
+      "quantity": 0,
+      "date": "2025-10-03T01:56:45.901Z"
+    },
+    {
+      "id": "tx_1759456609919",
+      "bookId": "",
+      "userId": "",
+      "type": "export",
+      "quantity": 0,
+      "date": "2025-10-03T01:56:49.919Z"
+    },
+    {
+      "id": "tx_1759458114657",
+      "bookId": "",
+      "userId": null,
+      "type": "import",
+      "quantity": 0,
+      "date": "2025-10-03T02:21:54.657Z"
+    },
+    {
+      "id": "tx_1759459285311",
+      "bookId": "bk_101",
+      "userId": null,
+      "type": "import",
+      "quantity": 30,
+      "date": "2025-10-03T02:41:25.311Z"
+    },
+    {
+      "id": "tx_1759460032987",
+      "bookId": "bk_101",
+      "userId": null,
+      "type": "export",
+      "quantity": 50,
+      "date": "2025-10-03T02:53:52.987Z"
     }
   ]
 }

@@ -1,7 +1,8 @@
 <div style="padding: 20px;">
-  <h2>Danh sách sách</h2>
+  <h2 style="margin-bottom: 20px;">Xuất / Nhập Sách</h2>
   <button class="import-btn" nz-button nzType="primary" (click)="openModal('import')">Nhập sách</button>
   <button class="export-btn" nz-button nzType="primary" nzDanger (click)="openModal('export')" style="margin-left: 8px; margin-bottom: 15px;">Xuất sách</button>
+
   <nz-table [nzData]="books" nzShowPagination="true">
     <thead>
       <tr>

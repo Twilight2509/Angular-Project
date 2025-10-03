@@ -4,7 +4,7 @@
 
   <!-- Content -->
   <nz-layout>
-    <nz-header class="header" style="">
+    <nz-header class="header" >
       <h1 >Book Management System</h1>
       <nz-button-group>
       <button style="border-top-left-radius: 7px; border-bottom-left-radius: 7px;" nz-button nzType="primary" nzGhost (click)="log()">DropDown</button>
@@ -15,7 +15,7 @@
     
     </nz-header>
     <nz-content class="content" > <!-- Điều chỉnh margin-left -->
-      <div style="">
+      <div>
         <router-outlet></router-outlet>
       </div>
     </nz-content>
@@ -24,8 +24,8 @@
 
 <nz-dropdown-menu #menu2="nzDropdownMenu">
       <ul nz-menu>
-        <li nz-menu-item>menu2 1st menu item</li>
+        <li nz-menu-item>Profile</li>
         <li nz-menu-item>menu2 2nd menu item</li>
-        <li nz-menu-item>menu2 3rd menu item</li>
+        <li nz-menu-item routerLink="login">Login</li>
       </ul>
     </nz-dropdown-menu>
