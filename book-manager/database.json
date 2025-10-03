@@ -196,6 +196,20 @@
       "type": "export",
       "quantity": 50,
       "date": "2025-10-03T02:53:52.987Z"
+    },
+    {
+      "id": "tx_1759461644078",
+      "bookId": "bk_101",
+      "type": "export",
+      "quantity": 50,
+      "date": "2025-10-03T03:20:44.078Z"
+    },
+    {
+      "id": "tx_1759461650931",
+      "bookId": "bk_101",
+      "type": "import",
+      "quantity": 50,
+      "date": "2025-10-03T03:20:50.931Z"
     }
   ]
 }

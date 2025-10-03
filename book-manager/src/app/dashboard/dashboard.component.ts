@@ -44,7 +44,7 @@ export class DashboardComponent implements OnInit {
   totalImport = 0;
   totalExport = 0;
   date = new Date();
-  chartSeries: ApexAxisChartSeries = [{ name: 'Nhập', data: [] }, { name: 'Xuất', data: [] }];
+  chartSeries: ApexAxisChartSeries = [];
   chartOptions = {
     chart: { type: 'bar' as const, height: 350 } as ApexChart,
     plotOptions: { bar: { horizontal: false, columnWidth: '55%', endingShape: 'rounded' } } as ApexPlotOptions,
@@ -57,29 +57,35 @@ export class DashboardComponent implements OnInit {
   constructor(private apiService: ApiService) {}
 
   ngOnInit() {
-    this.loadData();
+    this.chartSeries = [
+  { name: 'Nhập', data: [] },
+  { name: 'Xuất', data: [] }
+];
+  this.loadData(this.date.getFullYear());
+}
+
+loadData(year: number) {
+  this.apiService.getInventoryStats().subscribe(stats => {
+    this.totalStock = stats.totalStock;
+    this.totalImport = stats.totalImport;
+    this.totalExport = stats.totalExport;
+    this.totalUsers = stats.totalUsers;
+  });
+
+  this.apiService.getBooksWithExport().subscribe(data => {
+    this.booksData = data;
+  });
+
+  this.apiService.getMonthlyChartData(year).subscribe(series => {
+    this.chartSeries = series;
+  });
+}
+
+onChange(event: Date | null): void {
+  if (event) {
+    const year = event.getFullYear();
+    console.log('Selected year:', year);
+    this.loadData(year);
   }
-
-  loadData() {
-    this.apiService.getInventoryStats().subscribe(stats => {
-      this.totalStock = stats.totalStock;
-      this.totalImport = stats.totalImport;
-      this.totalExport = stats.totalExport;
-      this.totalUsers = stats.totalUsers;
-    });
-
-    this.apiService.getBooksWithExport().subscribe(data => {
-      this.booksData = data;
-    });
-
-    this.apiService.getMonthlyChartData().subscribe(series => {
-      this.chartSeries = series;
-    });
-  }
-
-  onChange(event: Date): void {
-    // Thêm logic khi ngày thay đổi, ví dụ: tải lại dữ liệu theo năm
-    console.log('Selected year:', event.getFullYear());
-    // Gọi API hoặc cập nhật chartSeries dựa trên năm mới nếu cần
-  }
+}
 }

@@ -19,7 +19,6 @@ export class LoginComponent {
   constructor(private router: Router) {}
 
   onSubmit() {
-    // Mock login, không check thực
     this.router.navigate(['/dashboard']);
   }
 }

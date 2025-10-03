@@ -1,9 +1,9 @@
 // src/app/app.config.ts
 import { ApplicationConfig } from '@angular/core';
-import { provideRouter } from '@angular/router'; // Thêm provideRouter cho routing
-import { provideHttpClient } from '@angular/common/http'; // HttpClient
-import { routes } from './app.routes'; // Import routes
-import { provideAnimations } from '@angular/platform-browser/animations'; // Thêm import này
+import { provideRouter } from '@angular/router';
+import { provideHttpClient } from '@angular/common/http';
+import { routes } from './app.routes';
+import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideNzIcons } from 'ng-zorro-antd/icon';
 import * as AllIcons from '@ant-design/icons-angular/icons';
 import { provideNzI18n, en_US } from 'ng-zorro-antd/i18n';
@@ -12,10 +12,10 @@ const icons = Object.values(AllIcons);
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideRouter(routes), // Sử dụng provideRouter thay vì { provide: 'routes', useValue: routes }
-    provideHttpClient(), // HttpClient toàn cục
+    provideRouter(routes),
+    provideHttpClient(),
     provideAnimations(),
     provideNzI18n(en_US),
-    provideNzIcons(icons) 
+    provideNzIcons(icons)
   ]
 };

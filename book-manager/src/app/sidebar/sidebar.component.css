@@ -17,34 +17,24 @@ nz-sider {
   height: 32px;
   margin: 16px;
   display: block;
-  object-fit: contain; /* Đảm bảo ảnh không bị méo */
-  /* max-width: 100%;  */
+  object-fit: contain; 
   width: 237px;
 }
 
 li.side-com {
-  position: relative; /* Required for pseudo-element positioning */
+  position: relative;
 }
 
 li.side-com::after {
   content: '';
   position: absolute;
   bottom: 0;
-  left: 10%; /* Start at 10% from the left to achieve 80% width */
-  width: 80%; /* Border width is 80% of the element's width */
-  border-bottom: 1px solid #fff; /* White bottom border */
+  left: 10%;
+  width: 80%;
+  border-bottom: 1px solid #fff;
 }
 
 .logo-col {
   border-bottom: 1px solid #fff;
 }
 
-/* Ghi đè kiểu mặc định của Ng-Zorro để loại bỏ màu xanh */
-nz-menu-item.ant-menu-item-selected {
-  background: none !important; /* Xóa màu nền xanh */
-}
-
-/* Áp dụng kiểu bôi đậm cho mục active */
-nz-menu-item.active {
-  font-weight: bold; /* Bôi đậm văn bản */
-}

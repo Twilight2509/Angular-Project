@@ -10,7 +10,7 @@ import { ApexAxisChartSeries } from 'ng-apexcharts';
 export class ApiService {
   private apiUrl = 'http://localhost:9999';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   getUsers(): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiUrl}/users`);
@@ -18,6 +18,10 @@ export class ApiService {
 
   getBooks(): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiUrl}/books`);
+  }
+
+  createBook(book: any): Observable<any> {
+    return this.http.post(`${this.apiUrl}/books`, book);
   }
 
   getTransactions(): Observable<any[]> {
@@ -57,52 +61,51 @@ export class ApiService {
         return Array.from(bookMap.values()).map(book => ({
           title: book.title,
           export: book.export,
-          stock: book.stock,
-          price: [100000, 150000, 200000, 250000][Math.floor(Math.random() * 4)]
+          stock: book.stock
         }));
       })
     );
   }
 
-  getMonthlyChartData(): Observable<ApexAxisChartSeries> {
-    return this.getTransactions().pipe(
-      map(transactions => {
-        const monthlyData = Array(12).fill(0).map(() => ({ import: 0, export: 0 }));
-        transactions.forEach(trans => {
-          const date = new Date(trans.date);
-          const month = date.getMonth(); // 0-11
+  getMonthlyChartData(year: number): Observable<ApexAxisChartSeries> {
+  return this.getTransactions().pipe(
+    map(transactions => {
+      const monthlyData = Array(12).fill(0).map(() => ({ import: 0, export: 0 }));
+      transactions.forEach(trans => {
+        const date = new Date(trans.date);
+        const month = date.getMonth();
+        const transYear = date.getFullYear();
+        if (transYear === year) {
           if (trans.type === 'import') monthlyData[month].import += trans.quantity;
           if (trans.type === 'export') monthlyData[month].export += trans.quantity;
-        });
-        return [
-          { name: 'Nhập', data: monthlyData.map(m => m.import) },
-          { name: 'Xuất', data: monthlyData.map(m => m.export) }
-        ];
-      })
-    );
-  }
+        }
+      });
+      const series: ApexAxisChartSeries = [
+        { name: 'Nhập', data: monthlyData.map(m => m.import) },
+        { name: 'Xuất', data: monthlyData.map(m => m.export) }
+      ];
+      return series;
+    })
+  );
+}
 
-  // Tạo transaction mới (nhập/xuất sách)
+
   createTransaction(transaction: any): Observable<any> {
     return this.http.post(`${this.apiUrl}/transactions`, transaction);
   }
 
-  // Update user
   updateUser(userId: string, user: any): Observable<any> {
     return this.http.put(`${this.apiUrl}/users/${userId}`, user);
   }
 
-  // Delete user
   deleteUser(userId: string): Observable<any> {
     return this.http.delete(`${this.apiUrl}/users/${userId}`);
   }
 
-  // 👉 Thêm mới sách
   addBook(book: any): Observable<any> {
     return this.http.post(`${this.apiUrl}/books`, book);
   }
 
-  // 👉 Cập nhật sách (stock, title, author)
   updateBook(bookId: string, book: any): Observable<any> {
     return this.http.put(`${this.apiUrl}/books/${bookId}`, book);
   }

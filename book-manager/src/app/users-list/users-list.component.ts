@@ -7,7 +7,6 @@ import { NzModalModule, NzModalService } from 'ng-zorro-antd/modal';
 import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NzMessageService } from 'ng-zorro-antd/message';
-import { HttpClientModule } from '@angular/common/http';
 import { ApiService } from '../services/api.service';
 
 @Component({
@@ -20,8 +19,7 @@ import { ApiService } from '../services/api.service';
     NzButtonModule,
     NzModalModule,
     NzFormModule,
-    NzInputModule,
-    HttpClientModule
+    NzInputModule
   ],
   templateUrl: './users-list.component.html',
   styleUrls: ['./users-list.component.css']

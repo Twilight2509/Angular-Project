@@ -9,5 +9,5 @@ export const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'books', component: BooksListComponent },
   { path: 'users', component: UsersListComponent },
-  { path: '', redirectTo: '/login', pathMatch: 'full' } // Route mặc định
+  { path: '', redirectTo: '/dashboard', pathMatch: 'full' }
 ];

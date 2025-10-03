@@ -6,11 +6,11 @@
     border-radius: 7px;
 }
 .zebra-table tbody tr:nth-child(odd) {
-  background: #e2e0e062; /* màu nhạt */
+  background: #e2e0e062;
 }
 
 .zebra-table tbody tr:nth-child(even) {
-  background: #fff; /* màu trắng */
+  background: #fff;
 }
 
 
