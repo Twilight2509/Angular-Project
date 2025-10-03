@@ -46,10 +46,16 @@
       "stock": 40
     },
     {
-      "id": "",
-      "title": "",
-      "author": "",
+      "id": "bk_105",
+      "title": "Angular Front-end",
+      "author": "Hẹ Hẹ Hẹ",
       "stock": 0
+    },
+    {
+      "id": "bk_106",
+      "title": "Hướng dẫn cách đi ngủ",
+      "author": "Tôi",
+      "stock": 500
     }
   ],
   "transactions": [
@@ -210,6 +216,27 @@
       "type": "import",
       "quantity": 50,
       "date": "2025-10-03T03:20:50.931Z"
+    },
+    {
+      "id": "tx_1759461650969",
+      "bookId": "bk_105",
+      "type": "export",
+      "quantity": 50,
+      "date": "2024-10-03T03:20:50.931Z"
+    },
+    {
+      "id": "tx_1759475805163",
+      "bookId": "bk_106",
+      "type": "import",
+      "quantity": 1000,
+      "date": "2025-10-03T07:16:45.163Z"
+    },
+    {
+      "id": "tx_1759475830771",
+      "bookId": "bk_106",
+      "type": "export",
+      "quantity": 500,
+      "date": "2025-10-03T07:17:10.771Z"
     }
   ]
 }

@@ -16,6 +16,14 @@ export class ApiService {
     return this.http.get<any[]>(`${this.apiUrl}/users`);
   }
 
+    updateUser(userId: string, user: any): Observable<any> {
+    return this.http.put(`${this.apiUrl}/users/${userId}`, user);
+  }
+
+  deleteUser(userId: string): Observable<any> {
+    return this.http.delete(`${this.apiUrl}/users/${userId}`);
+  }
+
   getBooks(): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiUrl}/books`);
   }
@@ -92,14 +100,6 @@ export class ApiService {
 
   createTransaction(transaction: any): Observable<any> {
     return this.http.post(`${this.apiUrl}/transactions`, transaction);
-  }
-
-  updateUser(userId: string, user: any): Observable<any> {
-    return this.http.put(`${this.apiUrl}/users/${userId}`, user);
-  }
-
-  deleteUser(userId: string): Observable<any> {
-    return this.http.delete(`${this.apiUrl}/users/${userId}`);
   }
 
   addBook(book: any): Observable<any> {
